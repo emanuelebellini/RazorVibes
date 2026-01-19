@@ -1,0 +1,12 @@
+@model RazorVibes.Models.Item
+
+<h2>Item details</h2>
+
+<p><strong>Id:</strong> @Model.Id</p>
+<p><strong>Name:</strong> @Model.Name</p>
+<p><strong>Description:</strong> @Model.Description</p>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "button" })
+    @Html.ActionLink("Back", "Index", null, new { @class = "button secondary" })
+</p>

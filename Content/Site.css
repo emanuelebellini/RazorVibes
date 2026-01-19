@@ -1,0 +1,88 @@
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    margin: 0;
+    background: #f6f7fb;
+    color: #1d1f27;
+}
+
+.site-header {
+    background: #242b4a;
+    color: #fff;
+    padding: 1.25rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.site-header a {
+    color: #ffb347;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.content {
+    padding: 2rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th,
+td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e5e8f2;
+    text-align: left;
+}
+
+th {
+    background: #eef1f9;
+}
+
+.actions a {
+    margin-right: 0.5rem;
+}
+
+.button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    background: #2f5bff;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.button.secondary {
+    background: #6b7280;
+}
+
+form {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    max-width: 560px;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin-top: 1rem;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    margin-top: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid #d1d5e3;
+}
+
+.form-actions {
+    margin-top: 1.5rem;
+}
