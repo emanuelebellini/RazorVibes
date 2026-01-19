@@ -1,0 +1,13 @@
+@model RazorVibes.Models.Item
+
+<h2>Delete item</h2>
+<p>Are you sure you want to remove <strong>@Model.Name</strong>?</p>
+
+@using (Html.BeginForm("Delete", "Items", new { id = Model.Id }, FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-actions">
+        <button type="submit" class="button">Delete</button>
+        @Html.ActionLink("Cancel", "Index", null, new { @class = "button secondary" })
+    </div>
+}
