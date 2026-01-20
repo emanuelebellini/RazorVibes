@@ -1,0 +1,35 @@
+@model RazorVibes.Models.Song
+@{
+    ViewBag.Title = "Song Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Song Details</h1>
+
+<div class="detail-card">
+    <div>
+        <span class="detail-label">Title</span>
+        <span>@Model.Title</span>
+    </div>
+    <div>
+        <span class="detail-label">Artist</span>
+        <span>@Model.Artist</span>
+    </div>
+    <div>
+        <span class="detail-label">Genre</span>
+        <span>@Model.Genre</span>
+    </div>
+    <div>
+        <span class="detail-label">Release Date</span>
+        <span>@Model.ReleasedOn.ToString("MMMM dd, yyyy")</span>
+    </div>
+    <div>
+        <span class="detail-label">Rating</span>
+        <span>@Model.Rating / 10</span>
+    </div>
+</div>
+
+<div class="form-actions">
+    <a class="primary-button" href="@Url.Action("Edit", new { id = Model.Id })">Edit</a>
+    <a class="secondary-button" href="@Url.Action("Index")">Back to List</a>
+</div>

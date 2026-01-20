@@ -1,0 +1,43 @@
+@model IEnumerable<RazorVibes.Models.Song>
+@{
+    ViewBag.Title = "Song Library";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-header">
+    <div>
+        <h1>Song Library</h1>
+        <p class="subtitle">Manage your in-memory collection.</p>
+    </div>
+    <a class="primary-button" href="@Url.Action("Create")">Add Song</a>
+</div>
+
+<table class="data-table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Artist</th>
+            <th>Genre</th>
+            <th>Release Date</th>
+            <th>Rating</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var song in Model)
+    {
+        <tr>
+            <td>@song.Title</td>
+            <td>@song.Artist</td>
+            <td>@song.Genre</td>
+            <td>@song.ReleasedOn.ToString("yyyy-MM-dd")</td>
+            <td>@song.Rating</td>
+            <td class="actions">
+                <a href="@Url.Action("Details", new { id = song.Id })">Details</a>
+                <a href="@Url.Action("Edit", new { id = song.Id })">Edit</a>
+                <a href="@Url.Action("Delete", new { id = song.Id })">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

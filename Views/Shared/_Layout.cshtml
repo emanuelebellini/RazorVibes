@@ -1,0 +1,31 @@
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title - RazorVibes</title>
+    <link rel="stylesheet" href="@Url.Content("~/Content/site.css")" />
+</head>
+<body>
+    <header class="site-header">
+        <div class="nav-bar">
+            <a class="brand" href="@Url.Action("Index", "Songs")">RazorVibes</a>
+            <nav class="nav-links">
+                <a href="@Url.Action("Index", "Songs")">Song Library</a>
+                <a href="@Url.Action("Create", "Songs")">Add Song</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="content">
+        @RenderBody()
+    </main>
+
+    <footer class="site-footer">
+        <span>ASP.NET MVC 5 + Razor Views sample</span>
+    </footer>
+</body>
+</html>
