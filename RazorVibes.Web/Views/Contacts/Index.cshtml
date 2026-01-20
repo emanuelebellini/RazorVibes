@@ -1,0 +1,42 @@
+@model IEnumerable<RazorVibes.Web.Models.Contact>
+
+@{
+    ViewBag.Title = "Contacts";
+}
+
+<section class="page-header">
+    <h2>Contacts</h2>
+    <p>Sample CRUD list stored in memory.</p>
+</section>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Notes</th>
+            <th>Created</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var contact in Model)
+    {
+        <tr>
+            <td>@contact.Name</td>
+            <td>@contact.Email</td>
+            <td>@contact.Notes</td>
+            <td>@contact.CreatedAt.ToString("yyyy-MM-dd")</td>
+            <td class="actions">
+                <a href="@Url.Action("Details", new { id = contact.Id })">Details</a>
+                <a href="@Url.Action("Edit", new { id = contact.Id })">Edit</a>
+                <a href="@Url.Action("Delete", new { id = contact.Id })">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<p>
+    <a class="button" href="@Url.Action("Create")">Add a new contact</a>
+</p>

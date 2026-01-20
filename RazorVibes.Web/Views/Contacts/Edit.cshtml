@@ -1,0 +1,34 @@
+@model RazorVibes.Web.Models.Contact
+
+@{
+    ViewBag.Title = "Edit Contact";
+}
+
+<h2>Edit Contact</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.Id)
+    <div class="form">
+        <div class="form-row">
+            @Html.LabelFor(m => m.Name)
+            @Html.TextBoxFor(m => m.Name, new { @class = "input" })
+            @Html.ValidationMessageFor(m => m.Name)
+        </div>
+        <div class="form-row">
+            @Html.LabelFor(m => m.Email)
+            @Html.TextBoxFor(m => m.Email, new { @class = "input" })
+            @Html.ValidationMessageFor(m => m.Email)
+        </div>
+        <div class="form-row">
+            @Html.LabelFor(m => m.Notes)
+            @Html.TextAreaFor(m => m.Notes, new { @class = "input" })
+            @Html.ValidationMessageFor(m => m.Notes)
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="button">Save</button>
+            <a class="button button-secondary" href="@Url.Action("Index")">Cancel</a>
+        </div>
+    </div>
+}

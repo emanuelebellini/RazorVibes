@@ -1,0 +1,19 @@
+@model RazorVibes.Web.Models.Contact
+
+@{
+    ViewBag.Title = "Delete Contact";
+}
+
+<h2>Delete Contact</h2>
+
+<p>Are you sure you want to delete <strong>@Model.Name</strong>?</p>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.Id)
+    <div class="form-actions">
+        <button type="submit" class="button button-danger">Delete</button>
+        <a class="button button-secondary" href="@Url.Action("Index")">Cancel</a>
+    </div>
+}
