@@ -1,0 +1,38 @@
+@model IEnumerable<RazorVibes.Models.Product>
+@{
+    ViewBag.Title = "Products";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Products</h2>
+<p>
+    @Html.ActionLink("Add product", "Create", null, new { @class = "button" })
+</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var product in Model)
+    {
+        <tr>
+            <td>@product.Name</td>
+            <td>@product.Description</td>
+            <td>@product.Price.ToString("C")</td>
+            <td>@product.Stock</td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = product.Id }, new { @class = "button secondary" })
+                @Html.ActionLink("Edit", "Edit", new { id = product.Id }, new { @class = "button" })
+                @Html.ActionLink("Delete", "Delete", new { id = product.Id }, new { @class = "button danger" })
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
