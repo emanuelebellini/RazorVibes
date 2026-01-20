@@ -1,0 +1,32 @@
+@model RazorVibes.Models.Song
+@{
+    ViewBag.Title = "Delete Song";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Delete Song</h1>
+
+<div class="detail-card warning">
+    <p>Are you sure you want to remove this song from your library?</p>
+    <div>
+        <span class="detail-label">Title</span>
+        <span>@Model.Title</span>
+    </div>
+    <div>
+        <span class="detail-label">Artist</span>
+        <span>@Model.Artist</span>
+    </div>
+    <div>
+        <span class="detail-label">Genre</span>
+        <span>@Model.Genre</span>
+    </div>
+</div>
+
+@using (Html.BeginForm("Delete", "Songs", new { id = Model.Id }, FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-actions">
+        <button class="danger-button" type="submit">Delete</button>
+        <a class="secondary-button" href="@Url.Action("Index")">Cancel</a>
+    </div>
+}

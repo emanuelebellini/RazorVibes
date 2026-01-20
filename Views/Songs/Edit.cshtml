@@ -1,0 +1,42 @@
+@model RazorVibes.Models.Song
+@{
+    ViewBag.Title = "Edit Song";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit Song</h1>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Id)
+
+    <div class="form-card">
+        <div class="form-grid">
+            @Html.LabelFor(model => model.Title)
+            @Html.TextBoxFor(model => model.Title)
+            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "validation" })
+
+            @Html.LabelFor(model => model.Artist)
+            @Html.TextBoxFor(model => model.Artist)
+            @Html.ValidationMessageFor(model => model.Artist, "", new { @class = "validation" })
+
+            @Html.LabelFor(model => model.Genre)
+            @Html.TextBoxFor(model => model.Genre)
+            @Html.ValidationMessageFor(model => model.Genre, "", new { @class = "validation" })
+
+            @Html.LabelFor(model => model.ReleasedOn)
+            @Html.TextBoxFor(model => model.ReleasedOn, "{0:yyyy-MM-dd}", new { type = "date" })
+            @Html.ValidationMessageFor(model => model.ReleasedOn, "", new { @class = "validation" })
+
+            @Html.LabelFor(model => model.Rating)
+            @Html.TextBoxFor(model => model.Rating, new { type = "number", min = "1", max = "10" })
+            @Html.ValidationMessageFor(model => model.Rating, "", new { @class = "validation" })
+        </div>
+
+        <div class="form-actions">
+            <button class="primary-button" type="submit">Save Changes</button>
+            <a class="secondary-button" href="@Url.Action("Index")">Cancel</a>
+        </div>
+    </div>
+}
